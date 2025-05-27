@@ -14,7 +14,7 @@ const Signup = () => {
 
   return (
     <div className="auth-container">
-      <h2>Sign Upp</h2>
+      <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
