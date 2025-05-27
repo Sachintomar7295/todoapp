@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api', // Your backend base URL
+  baseURL: 'https://todo-7-2vgq.onrender.com/api', // Your backend base URL
   headers: {
     'Content-Type': 'application/json',
   }
