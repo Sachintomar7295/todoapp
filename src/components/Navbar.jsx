@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
-  const { user, logout } = useAuth();
+  const { user, logout, formatNameFromEmail} = useAuth();
 
   return (
     <nav className="navbar">
@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className="nav-links">
         {user ? (
           <>
-            <span>Welcome, {user.email}</span>
+            <span>Welcome, {formatNameFromEmail(user.email)}</span>
             <button onClick={logout}>Logout</button>
           </>
         ) : (

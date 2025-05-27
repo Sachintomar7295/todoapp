@@ -35,8 +35,13 @@ const register = async (email, password) => {
     navigate('/login');
   };
 
+  const formatNameFromEmail = (email) => {
+  const username = email.split('@')[0];
+  return username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
+  }
+
   return (
-    <AuthContext.Provider value={{ user, register, login, logout }}>
+    <AuthContext.Provider value={{ user, register, login, logout, formatNameFromEmail }}>
       {children}
     </AuthContext.Provider>
   );

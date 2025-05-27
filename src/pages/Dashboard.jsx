@@ -5,16 +5,17 @@ import TodoForm from '../components/TodoForm';
 import TodoList from '../components/TodoList';
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user,formatNameFromEmail} = useAuth();
   const { todos, fetchTodos } = useTodos();
 
   useEffect(() => {
     fetchTodos();
   }, []);
 
+
   return (
     <div className="dashboard">
-      <h1>Welcome {user?.email}</h1>
+      <h1>Welcome {formatNameFromEmail(user?.email)}</h1>
       <TodoForm />
       <TodoList todos={todos} />
     </div>
