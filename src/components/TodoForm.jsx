@@ -1,25 +1,24 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useTodos } from '../context/TodoContext';
-//  Tthis is testing 
 
 const TodoForm = () => {
-  const [text, setText] = useState('');
+  const [description, setDescription] = useState('');
   const { addTodo } = useTodos();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (!text.trim()) return;
-    await addTodo(text);
-    setText('');
+    if (!description.trim()) return;
+    addTodo(description);
+    setDescription('');
   };
 
   return (
-    <form onSubmit={handleSubmit} className="todo-form">
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Add new todo"
+        placeholder="नया todo लिखें"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
       />
       <button type="submit">Add</button>
     </form>
@@ -27,4 +26,4 @@ const TodoForm = () => {
 };
 
 export default TodoForm;
-//test
+// new joda he

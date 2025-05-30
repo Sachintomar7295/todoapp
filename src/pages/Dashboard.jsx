@@ -1,20 +1,19 @@
-import { useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
+import React, { useEffect } from 'react';
 import { useTodos } from '../context/TodoContext';
+import { useAuth } from '../context/AuthContext';
 import TodoForm from '../components/TodoForm';
 import TodoList from '../components/TodoList';
 
 const Dashboard = () => {
-  const { user,formatNameFromEmail} = useAuth();
+  const { user, formatNameFromEmail } = useAuth();
   const { todos, fetchTodos } = useTodos();
 
   useEffect(() => {
     fetchTodos();
   }, []);
 
-
   return (
-    <div className="dashboard">
+    <div>
       <h1>Welcome {formatNameFromEmail(user?.email)}</h1>
       <TodoForm />
       <TodoList todos={todos} />
@@ -23,3 +22,6 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+
+// new joda he
